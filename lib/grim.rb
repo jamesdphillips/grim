@@ -17,6 +17,9 @@ module Grim
   # Default colorspace
   COLORSPACE = "RGB"
 
+  # Default PDF page box to use
+  PAGEBOX = :media
+
   # Default exception class for Grim.
   class Exception < ::StandardError
   end
