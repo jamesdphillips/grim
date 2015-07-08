@@ -27,6 +27,7 @@ module Grim
       pagebox    = options.fetch(:pagebox, Grim::PAGEBOX)
       colorspace = options.fetch(:colorspace, Grim::COLORSPACE)
       background = options[:background]
+      format     = options[:format]
       alpha      = options[:alpha]
 
       command = []
@@ -39,6 +40,7 @@ module Grim
       command << "-colorspace #{colorspace}"
       command << "-interlace none"
       command << "-density #{density}"
+      commany << "-format #{format}" if format
       command << "-background #{background} -flatten" if background
       command << "-define pdf:use-#{pagebox}=true" if %w(trimbox cropbox).include?(pagebox.to_s)
       command << "#{Shellwords.shellescape(pdf.path)}[#{index}]"
